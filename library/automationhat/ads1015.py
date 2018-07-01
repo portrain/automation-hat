@@ -45,7 +45,7 @@ class ads1015:
         self.i2c_bus.write_i2c_block_data(self.addr, REG_CFG, [(config >> 8) & 0xFF, config & 0xFF])
         while self.status() == 0:
             time.sleep(delay / 100.0)
-        data = self.i2c_bus.read_i2c_block_data(self.addr, REG_CONV)
+        data = self.i2c_bus.read_i2c_block_data(self.addr, REG_CONV, length=32)
 
         value = ((data[0] << 4) | (data[1] >> 4))
 
