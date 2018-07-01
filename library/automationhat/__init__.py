@@ -344,7 +344,7 @@ def setup():
     GPIO.setwarnings(False)
  
     try:
-        import smbus
+        import smbus2 as smbus
     except ImportError:
         if version_info[0] < 3:
             raise ImportError("This library requires python-smbus\nInstall with: sudo apt install python-smbus")
